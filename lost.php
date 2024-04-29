@@ -79,6 +79,31 @@ include "connect.php";
             /*color: black;*/
         }
 
+        .header1 {
+            background-size: cover;
+            text-align: center;
+            position: relative;
+            padding: 30px 190px 50px 0px;
+        }
+
+        .img2 {
+            width: 1300px;
+            height: 420px;
+        }
+
+        .breadcrumb {
+            background: transparent;
+            font-size: 20px;
+        }
+
+        .mb-3 {
+            font-size: 50px;
+            background: linear-gradient(to right, #f32170,
+                    #ff6b08, #cf23cf, #eedd44);
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+        }
+
         /*.cc_link {
             text-decoration: none;
             color: black;
@@ -169,17 +194,17 @@ include "connect.php";
         <section class="header1">
             <div class="container">
                 <div class="img2"
-                    style="background-image: url(b2.jpeg); display: flex; justify-content: center; align-items: center;">
+                    style="background-image: url(p3.jpeg); display: flex; justify-content: center; align-items: center;">
                     <div class="row">
                         <div class="col-mod-12">
                             <h1 class="mb-3">Lost</h1>
                             <div class="breadcrumb header-breadcrumb justify-content-center">
                                 <div class="breadcrumb-item"><a href="admin.php">
-                                        <h5>Home</h5>
+                                        <h3>Home</h3>
                                     </a>
                                 </div>
                                 <div class="breadcrumb-item active text-dark" aria-current="page">
-                                    <h5>Lost</h5>
+                                    <h3>Lost</h3>
                                 </div>
                             </div>
                         </div>
@@ -188,8 +213,8 @@ include "connect.php";
             </div>
         </section>
         <div class="container">
-            <a href="post.php" class="btn btn-primary float-sm-right" role="button">Add Post</a><br><br>
-            <h2>ALL Posts</h2>
+            <a href="lost1.php" class="btn btn-primary float-sm-right" role="button">Add Data</a><br><br>
+            <h2>ALL Lost Items</h2>
             <table class="table" style="width:100%">
                 <!--<TABLE BORDER=”6″ CELLPADDING=”30″>-->
                 <thead>
@@ -197,25 +222,28 @@ include "connect.php";
                         <th scope="col">id</th>
                         <th scope="col">Title</th>
                         <th scope="col">content</th>
-                        <th scope="col">image</th>
                         <th scope="col">mobile number</th>
+                        <th scope="col">Image</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    //$sql = "select * from posts";
+                    $sql = "select * from lost";
                     $result = mysqli_query($conn, $sql);
                     if ($result) {
                         while ($row = mysqli_fetch_assoc($result)) {
                             $id = $row['id'];
-                            $title = $row["title"];
                             $name = $row["name"];
+                            $content = $row["content"];
+                            $number = $row["number"];
+                            $image = $row["image"];
                             echo '<tr>
                   <th scope="row">' . $id . '</th>
-                  <td>' . $title . '</td>
                   <td>' . $name . '</td>
+                  <td>' . $content . '</td>
+                  <td>' . $number . '</td>
+                  <td><img src="' . $image . '" alt="Image"></td>
                   <td>
-                  <button class="btn btn-primary"><a href="update1.php?updateid=' . $id . '" class="text-light">update</a></button>
                   </td>
                   </tr>';
                         }

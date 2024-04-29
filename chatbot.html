@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot UI</title>
+    <link rel="stylesheet" href="chatstyle.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="menuToggle">
+        <i class='bx bxs-message-alt-add'></i>
+    </div>
+    <div class="container">
+        <div class="top-part">
+            <div class="agent-details">
+                <img src="./639357c493d4025f33c528ee_skating.jpg" alt="">
+                <div class="agent-text">
+                    <h3>CogniBOT</h3>
+                    <p>Agent <span>(Online)</span></p>
+                </div>
+            </div>
+            <i class='bx bx-x'></i>
+        </div>
+        <div class="chart-section">
+            <div class="left-part">
+                <div class="agent-chart">
+                    <img src="./639357c493d4025f33c528ee_skating.jpg" alt="">
+                    <p>Hey there! Any questions ?</p>
+                </div>
+            </div>
+            <div class="right-part">
+                <p>Hello</p>
+                <span>10min ago</span>
+            </div>
+        </div>
+
+        <div class="chart-section">
+            <div class="left-part">
+                <div class="agent-chart">
+                    <img src="./639357c493d4025f33c528ee_skating.jpg" alt="">
+                    <p>How is your mental health now ?</p>
+                </div>
+            </div>
+            <div class="right-part">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt ullam a, velit odio aperiam
+                    blanditiis .</p>
+                <span>Just now</span>
+            </div>
+        </div>
+        <div class="bottom-section">
+            <i class='bx bxs-camera'></i>
+            <textarea name="" id="" cols="30" rows="10" placeholder="Send a message"></textarea>
+            <i class='bx bxs-send'></i>
+        </div>
+    </div>
+    <script>
+        const menuToggle = document.querySelector('.menuToggle');
+        menuToggle.onclick = function () {
+            menuToggle.classList.toggle('active')
+        }
+    </script>
+</body>
+
+</html>

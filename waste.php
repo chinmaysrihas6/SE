@@ -247,15 +247,15 @@ include 'connect.php';
         <div class="container">
             <!-- navigation menu start-->
             <nav>
-                <a href="home.php" class="logo" data-aos="fade-up" data-aos-offset="0" data-aos-delay="50"
-                    data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-mirror="false" data-aos-once="false"
-                    data-aos-anchor-placement="top-center">
-                    <noscript>
-                        <img src="path_to_your_image" alt="Espirit technologies" width="200" height="55">
-                    </noscript>
-                    <img class="lazy" decoding="async" data-src="path_to_your_image" alt="Espirit technologies"
-                        width="200" height="55">
-                </a>
+                <a href="https://espirittech.com" class="logo" data-aos="fade-up" data-aos-offset="0"
+                    data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-mirror="false"
+                    data-aos-once="false" data-aos-anchor-placement="top-center"><noscript><img decoding="async"
+                            src="https://espirittech.com/wp-content/uploads/2021/10/espirit-logo.svg"
+                            alt="Espirit technologies" width="200" height="55"></noscript><img class="lazy"
+                        decoding="async"
+                        src='data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20200%2055%22%3E%3C/svg%3E'
+                        data-src="https://espirittech.com/wp-content/uploads/2021/10/espirit-logo.svg"
+                        alt="Espirit technologies" width="200" height="55"></a>
                 <button class="navbar-toggler" id="navbar-btn" aria-label="Menu Button">
                     <span></span>
                     <span></span>
@@ -265,20 +265,40 @@ include 'connect.php';
                     data-aos-delay="50" data-aos-duration="1000" data-aos-easing="ease-in-out" data-aos-mirror="false"
                     data-aos-once="false" data-aos-anchor-placement="top-center" style="display:flex;">
                     <ul class="navbar-menu" id="navbar-menu">
-                        <li><a href="home.php" aria-current="page">Home</a></li>
-                        <li><a href="about.php">About Us</a></li>
-                        <li><a href="services.php">Services</a></li>
-                        <li><a href="lost.php">Lost</a></li>
-                        <li><a href="found.php">Found</a></li>
-                        <li><a href="contact-us.php">Contact Us</a></li>
-                        <li><a href="logout.php">Logout</a></li>
+                        <li id="menu-item-119"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-93 current_page_item menu-item-119">
+                            <a href="display.php" aria-current="page">Home</a>
+                        </li>
+                        <li id="menu-item-130"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-130"><a
+                                href="about.php">About Us</a>
+                        </li>
+                        <li id="menu-item-146"
+                            class="drop-down menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-146">
+                            <a href="services.php">Services</a>
+                        </li>
+                        <li id="menu-item-151"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-151"><a
+                                href="lost.php">Lost</a>
+                        </li>
+                        <li id="menu-item-1430"
+                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1430"><a
+                                href="https://espirittech.com/category/blog/">Found</a>
+                        </li>
+                        <li id="menu-item-133"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-133"><a
+                                href="https://espirittech.com/contact-us/">Contact Us</a>
+                        </li>
+                        <li id="menu-item-133"
+                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-133"><a
+                                href="https://espirittech.com/contact-us/">logout</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
         </div>
         <div class="progress-bar" id="progressbar"></div>
     </header>
-    <!-- Add the rest of your HTML content here -->
     <section class="header1">
         <div class="container">
             <div class="img" style="background-image: url(t1.png);">
