@@ -8,32 +8,45 @@ if (isset($_POST['submit'])) {
     $content = $_POST["content"];
     $number = $_POST["mobile"]; // Change $_POST["mobile"] to $_POST["number"]
     $image = $_FILES["file"];
+    $price = mysqli_real_escape_string($conn, $_POST["price"]);
 
-    $imagefilename = $image['name'];
-    $imagefiletemp = $image['tmp_name'];
+    // Loop through each uploaded file
+    foreach ($image['name'] as $key => $imagefilename) {
+        $imagefileerror = $image['error'][$key];
+        $imagefiletemp = $image['tmp_name'][$key];
 
-    $filename_separate = explode('.', $imagefilename);
-    $file_extension = strtolower(end($filename_separate));
+        // Get file extension
+        $filename_separate = explode('.', $imagefilename);
+        $file_extension = strtolower(end($filename_separate));
 
-    $extension = array('jpeg', 'jpg', 'png');
-    if (in_array($file_extension, $extension)) {
-        $upload_image = 'images/' . $imagefilename;
-        move_uploaded_file($imagefiletemp, $upload_image);
-    }
+        $extension = array('jpeg', 'jpg', 'png');
+        if (in_array($file_extension, $extension)) {
+            $upload_image = 'images/' . $imagefilename;
 
-    $price = $_POST["price"]; // Get the price from the form
-    // Validate price
-    if (!is_numeric($price) || $price < 0) {
-        die("Error: Invalid price.");
-    }
+            $price = $_POST["price"]; // Get the price from the form
+            // Validate price
+            if (!is_numeric($price) || $price < 0) {
+                die("Error: Invalid price.");
+            }
+            // Move uploaded file to destination directory
+            if (move_uploaded_file($imagefiletemp, $upload_image)) {
+                // Prepare SQL statement for each uploaded file
+                $sql = "INSERT INTO exchange (product, content, number, image, price) VALUES ('$product', '$content', '$number', '$upload_image', '$price')";
 
-    $sql = "INSERT INTO found (name, content, number, image, price) VALUES ('$name','$content','$number','$upload_image','$price')";
-
-    $result = mysqli_query($conn, $sql);
-    if ($result) {
-        $success = "Post uploaded successfully";
-    } else {
-        die("Error: " . mysqli_error($conn));
+                // Execute SQL query
+                $result = mysqli_query($conn, $sql);
+                if ($result) {
+                    //$success = "Post uploaded successfully";
+                    header('location:exchange.php');
+                } else {
+                    die("Error: " . mysqli_error($conn));
+                }
+            } else {
+                echo "Failed to move uploaded file.";
+            }
+        } else {
+            echo "File format not supported.";
+        }
     }
 }
 ?>

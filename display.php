@@ -44,8 +44,8 @@
 
         .img {
             width: auto;
-            height: 520px;
-            margin-top: 70px;
+            height: 450px;
+            margin-top: 20px;
         }
 
         .post {
@@ -100,6 +100,14 @@
         .mainbody {
             background-color: aliceblue;
         }*/
+        .navbar.bg-dark {
+            background-color: yellow !important;
+        }
+
+        .navbar.bg-dark .navbar-nav .nav-link {
+            color: black;
+            /* Set text color to white for better visibility */
+        }
     </style>
 
     <!-- 
@@ -140,7 +148,7 @@
         </nav>
 
 
-        <nav class="navbar navbar-expand-lg navbar-dark position-fixed" id="navbar">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark position-fixed" id="navbar">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -191,9 +199,9 @@
                 <div class="col">
                     <div class="card shadow-lg p-4 mb-4" style="width:380px">
                         <div class="card-body shadow-lg p-4 mb-4 bg-white">
-                            <h3 class="card-title">Case Solved</h3><br>
+                            <h3 class="card-title">Achievement</h3><br>
                             <p class="card-text">250+<br><br>
-                                Satisfied Clients
+                                Projects Exchanged
                             </p>
                         </div>
                     </div>
@@ -203,7 +211,7 @@
                         <div class="card-body shadow-lg p-4 mb-4 bg-white">
                             <h3 class="card-title">Happy faces</h3><br>
                             <p class="card-text">
-                            <p>About 90% People Are Happy Today Due To ChatBot <i class="fas fa-heart"></i></p>
+                            <p>About 90% People Are Happy Today <i class="fas fa-heart"></i></p>
                             </p>
                         </div>
                     </div>
@@ -214,23 +222,20 @@
             <div class="row">
                 <div class="col">
                     <div class="container">
-                        <h2>Image</h2>
-                        <img class="rounded" src="paris.jpg" alt="Chania" width="430px" height="345px">
+                        <img class="rounded" src="company.jpg" alt="Chania" width="430px" height="345px">
                     </div>
                 </div>
                 <div class="col">
                     <h1 class="mb-3">About Us</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, doloremque exercitationem
-                        facere consequuntur voluptatibus inventore eveniet mollitia? Iusto suscipit, obcaecati quis
-                        quia aspernatur at inventore ut totam, architecto vitae fuga?<br>
+                    <p>At Product Exchange System, we understand the stress and inconvenience that comes with
+                        losing valuable items. That's why we've created a platform dedicated to helping individuals
+                        reunite with their lost belongings quickly and efficiently.
 
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi laudantium ad minima
-                        facere rem reprehenderit! Cum ea dicta magni nisi excepturi in distinctio modi labore, error
-                        iure veritatis optio velit.<br>
+                        Our mission is simple: to provide a reliable and user-friendly platform for reporting lost items
+                        and facilitating their return to their rightful owners. With our easy-to-use interface and
+                        extensive network, we strive to make the process of reclaiming lost items as seamless as
+                        possible.<br>
 
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veritatis culpa, tempora earum
-                        magnam dolore repellendus atque quibusdam accusamus deleniti, vel inventore saepe quos
-                        excepturi similique officiis nihil voluptate. Totam, adipisci.
                     </p>
                 </div>
             </div>
@@ -263,7 +268,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+        </div><br><br><br>
 
         <footer class="f1">
             <div class="img1"

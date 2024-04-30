@@ -1,7 +1,54 @@
 <?php
 include "connect.php";
 
+$success = "";
 
+if (isset($_POST['submit'])) {
+    $name = $_POST["name"];
+    $content = $_POST["content"];
+    $number = $_POST["number"];
+    $images = $_FILES["file"];
+
+    // Loop through each uploaded file
+    foreach ($images['name'] as $key => $imagefilename) {
+        $imagefileerror = $images['error'][$key];
+        $imagefiletemp = $images['tmp_name'][$key];
+
+        // Get file extension
+        $filename_separate = explode('.', $imagefilename);
+        $file_extension = strtolower(end($filename_separate));
+
+        $extension = array('jpeg', 'jpg', 'png');
+        if (in_array($file_extension, $extension)) {
+            $upload_image = 'images/' . $imagefilename;
+
+            // Move uploaded file to destination directory
+            if (move_uploaded_file($imagefiletemp, $upload_image)) {
+                // Prepare SQL statement for each uploaded file
+                $sql = "INSERT INTO found (name, content, number, image) VALUES ('$name', '$content', '$number', '$upload_image')";
+
+                // Execute SQL query
+                $result = mysqli_query($conn, $sql);
+                if ($result) {
+                    $success = "Post uploaded successfully";
+                } else {
+                    die("Error: " . mysqli_error($conn));
+                }
+            } else {
+                echo "Failed to move uploaded file.";
+            }
+        } else {
+            echo "File format not supported.";
+        }
+    }
+}
+
+?>
+
+
+
+<?php
+/*include "connect.php";
 $success = "";
 
 if (isset($_POST['submit'])) {
@@ -37,7 +84,7 @@ if (isset($_POST['submit'])) {
         die("Error: " . mysqli_error($conn));
     }
 }
-
+*/
 
 ?>
 <!DOCTYPE html>
@@ -134,12 +181,13 @@ if (isset($_POST['submit'])) {
             background: transparent;
             font-size: 20px;
         }
+
         .mb-3 {
             color: black;
             font-size: 50px;
         }
 
-       
+
 
         .img2 {
             width: 1300px;
@@ -299,7 +347,7 @@ if (isset($_POST['submit'])) {
                                     <label for="title">
                                         <h3>Title:</h3>
                                     </label>
-                                    <input type="text" class="form-control" id="title" name="title" required>
+                                    <input type="text" class="form-control" id="title" name="name" required>
                                 </div><br>
                                 <div class="mb-3">
                                     <label for="content">
@@ -312,7 +360,7 @@ if (isset($_POST['submit'])) {
                                     <label for="text" class="form-label">
                                         <h3>Phone Number:</h3>
                                     </label>
-                                    <input type="text" class="form-control" id="phoneno" name="mobile"
+                                    <input type="text" class="form-control" id="phoneno" name="number"
                                         placeholder="Enter your phone number">
                                 </div>
 

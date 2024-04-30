@@ -2,19 +2,19 @@
 include 'connect.php';
 
 if (isset($_POST['submit'])) {
-    $email = $_POST["email"];
-    $password = $_POST["password"];
+    $email = mysqli_real_escape_string($conn, $_POST["email"]);
+    $password = mysqli_real_escape_string($conn, $_POST["password"]);
 
-    $sql = "insert into signup (email, password) values('$email','$password')";
+    $sql = "INSERT INTO users (email, password) VALUES ('$email','$password')";
 
     $result = mysqli_query($conn, $sql);
     if ($result) {
+        mysqli_close($conn);
         header('location:display.php');
-        //$success = "Post uploaded successfully";
+        exit();
     } else {
         die("Error: " . mysqli_error($conn));
     }
-
 }
 ?>
 <!DOCTYPE html>
@@ -31,21 +31,21 @@ if (isset($_POST['submit'])) {
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form>
+            <form method="post" action="">
                 <h1>Create Account</h1>
                 <input type="text" placeholder="Name" />
                 <input type="email" placeholder="Email" name="email" />
                 <input type="password" placeholder="Password" name="password" />
-                <button name="submit">Sign Up</button>
+                <button type="submit" name="submit">Sign In</button>
             </form>
         </div>
         <div class="form-container sign-in">
-            <form>
+            <form method="post" action="">
                 <h1>Sign In</h1>
                 <input type="email" placeholder="Email" name="email" />
                 <input type="password" placeholder="Password" name="password" />
                 <a href="#">Forget Your Password?</a>
-                <button name="submit">Sign In</button>
+                <button type="submit" name="submit">Sign In</button>
             </form>
         </div>
         <div class="toggle-container">

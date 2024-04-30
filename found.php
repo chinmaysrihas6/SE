@@ -233,14 +233,17 @@ include "connect.php";
                     if ($result) {
                         while ($row = mysqli_fetch_assoc($result)) {
                             $id = $row['id'];
-                            $title = $row["title"];
                             $name = $row["name"];
+                            $content = $row["content"];
+                            $number = $row["number"];
+                            $image = $row["image"];
                             echo '<tr>
                   <th scope="row">' . $id . '</th>
-                  <td>' . $title . '</td>
                   <td>' . $name . '</td>
+                  <td>' . $content . '</td>
+                  <td>' . $number . '</td>
+                  <td><img src="' . $image . '" alt="Image"></td>
                   <td>
-                  <button class="btn btn-primary"><a href="update1.php?updateid=' . $id . '" class="text-light">update</a></button>
                   </td>
                   </tr>';
                         }

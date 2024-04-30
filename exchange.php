@@ -1,4 +1,3 @@
-
 <?php
 include "connect.php";
 ?>
@@ -235,14 +234,19 @@ include "connect.php";
                     if ($result) {
                         while ($row = mysqli_fetch_assoc($result)) {
                             $id = $row['id'];
-                            $title = $row["title"];
-                            $name = $row["name"];
+                            $product = $row["product"];
+                            $content = $row["content"];
+                            $number = $row["number"];
+                            $price = $row["price"];
+                            $image = $row["image"];
                             echo '<tr>
-                  <th scope="row">' . $id . '</th>
-                  <td>' . $title . '</td>
-                  <td>' . $name . '</td>
+                            <th scope="row">' . $id . '</th>
+                            <td>' . $product . '</td>
+                            <td>' . $content . '</td>
+                            <td>' . $number . '</td>
+                            <td>' . $price . '</td>
+                            <td><img src="' . $image . '" alt="Image"></td>
                   <td>
-                  <button class="btn btn-primary"><a href="update1.php?updateid=' . $id . '" class="text-light">update</a></button>
                   </td>
                   </tr>';
                         }
